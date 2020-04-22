@@ -3,8 +3,13 @@ module.exports = {
   plugins: ["prettier"],
   env: {
     browser: true,
+    jest: true,
   },
   rules: {
     "prettier/prettier": 2,
+  },
+  globals: {
+    // For puppeteer tests
+    page: true,
   },
 };

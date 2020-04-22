@@ -1,0 +1,19 @@
+name: Run puppeteer tests on the example code
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install puppeteer libraries
+      run: sudo apt-get update; sudo apt-get install -y libgbm-dev
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: yarn --pure-lockfile
+    - name: Lint the code
+      run: yarn lint
+    - name: Run tests
+      run: yarn test
