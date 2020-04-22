@@ -9,7 +9,7 @@
 As the name suggests `react-use-infinite-loader` uses React Hooks, so you need to be using React function components to use this library.
 
 ## Usage
-> See [`example/`](example/Example.jsx) for a full example (recommended), run it locally with `yarn buildExample`). [Also view it in the browser](https://google.com)
+> See [`example/`](example/Example.jsx) for a full example (recommended), run it locally with `yarn buildExample`). [Also view it in the browser](https://react-use-infinite-loader.netlify.app)
 
 Install with
 ```bash
