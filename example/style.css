@@ -1,0 +1,22 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+code {
+  font-size: 16px;
+}
+
+.item {
+  padding: 10px;
+  background-color: aliceblue;
+  margin: 10px 0;
+}
+
+.info {
+  margin: 20px 0;
+}
