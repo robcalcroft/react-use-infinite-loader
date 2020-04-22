@@ -1,2 +1,4 @@
 !.*
 useInfiniteLoader.es5.js
+node_modules
+example/dist
