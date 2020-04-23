@@ -56,8 +56,8 @@ function App() {
     // initialise: initialLoad === false,
 
     // Passed directly to the intersection observer https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
-    // Set to 0px top margin to allow you to see the loading effect easier in this demo
-    rootMargin: "0px 0px 0px 0px",
+    // Set to 5px top margin to allow you to see the loading effect easier in this demo
+    rootMargin: "5px 0px 0px 0px",
 
     // Passed directly to the intersection observer https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
     // threshold: 0,
