@@ -13,7 +13,7 @@ function getMoreItems(page) {
       const nextPageStart = (page + 1) * pageSize;
       resolve({
         items: exampleData.slice(pageStart, pageStart + pageSize),
-        hasMore:
+        canLoadMore:
           exampleData.slice(nextPageStart, nextPageStart + pageSize).length ===
           pageSize,
       });
@@ -24,12 +24,12 @@ function getMoreItems(page) {
 function App() {
   const [loading, setLoading] = React.useState(false);
   const [items, setItems] = React.useState([]);
-  const [hasMore, setHasMore] = React.useState(true);
+  const [canLoadMore, setCanLoadMore] = React.useState(true);
   const loadMore = React.useCallback((page) => {
     setLoading(true);
     getMoreItems(page).then((response) => {
-      if (response.hasMore !== hasMore) {
-        setHasMore(response.hasMore);
+      if (response.canLoadMore !== canLoadMore) {
+        setCanLoadMore(response.canLoadMore);
       }
       setItems((currentItems) => [...currentItems, ...response.items]);
       setLoading(false);
@@ -44,7 +44,7 @@ function App() {
     loadMore,
 
     // If this is false useInfiniteLoader no longer invokes `loadMore` when it usually does
-    hasMore,
+    canLoadMore,
 
     // Not used in this example. Used if you already load page 0 on mount, you can tell
     // useInfiniteLoader what page to begin loading more from
@@ -91,7 +91,9 @@ function App() {
       {loading === true && (
         <div className="info">Loading page {page + 1}...</div>
       )}
-      {hasMore === false && <div className="info">No more items to load</div>}
+      {canLoadMore === false && (
+        <div className="info">No more items to load</div>
+      )}
     </>
   );
 }

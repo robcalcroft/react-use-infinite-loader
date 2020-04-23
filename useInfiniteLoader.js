@@ -3,7 +3,7 @@ import React from "react";
 export default function useInfiniteLoader({
   initialPage = 0,
   loadMore,
-  hasMore = false,
+  canLoadMore = false,
   initialise = true,
   rootMargin = "100px 0px 0px 0px",
   threshold = 0,
@@ -23,7 +23,7 @@ export default function useInfiniteLoader({
           if (target.intersectionRatio <= 0) {
             return;
           }
-          if (hasMore === false) {
+          if (canLoadMore === false) {
             return;
           }
           loadMore(page.current);
@@ -41,6 +41,6 @@ export default function useInfiniteLoader({
         observer.current = undefined;
       }
     };
-  }, [hasMore, loadMore, page, initialise]);
+  }, [canLoadMore, loadMore, page, initialise]);
   return { loaderRef, page: page.current };
 }

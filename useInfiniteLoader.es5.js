@@ -25,8 +25,8 @@ function useInfiniteLoader(_ref) {
   var _ref$initialPage = _ref.initialPage,
       initialPage = _ref$initialPage === void 0 ? 0 : _ref$initialPage,
       loadMore = _ref.loadMore,
-      _ref$hasMore = _ref.hasMore,
-      hasMore = _ref$hasMore === void 0 ? false : _ref$hasMore,
+      _ref$canLoadMore = _ref.canLoadMore,
+      canLoadMore = _ref$canLoadMore === void 0 ? false : _ref$canLoadMore,
       _ref$initialise = _ref.initialise,
       initialise = _ref$initialise === void 0 ? true : _ref$initialise,
       _ref$rootMargin = _ref.rootMargin,
@@ -54,7 +54,7 @@ function useInfiniteLoader(_ref) {
           return;
         }
 
-        if (hasMore === false) {
+        if (canLoadMore === false) {
           return;
         }
 
@@ -76,7 +76,7 @@ function useInfiniteLoader(_ref) {
         observer.current = undefined;
       }
     };
-  }, [hasMore, loadMore, page, initialise]);
+  }, [canLoadMore, loadMore, page, initialise]);
 
   return {
     loaderRef: loaderRef,
