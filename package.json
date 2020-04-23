@@ -18,13 +18,13 @@
     "react": ">= 16.8.x"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.4.0",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
@@ -33,7 +33,7 @@
     "jest-puppeteer": "^4.4.0",
     "parcel": "^1.12.4",
     "prettier": "^2.0.5",
-    "puppeteer": "^3.0.0",
+    "puppeteer": "^3.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "standard-version": "^7.0.1"
