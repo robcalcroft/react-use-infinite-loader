@@ -1,6 +1,6 @@
 {
   "name": "react-use-infinite-loader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Infinitely load new content in React using a simple React hook",
   "main": "useInfiniteLoader.es5.js",
   "repository": "git@github.com:CurationCorp/react-use-infinite-loader.git",
@@ -14,11 +14,8 @@
     "buildExample:production": "parcel build example/index.html --no-source-maps --no-cache --out-dir example/dist",
     "release": "yarn test && yarn build && standard-version"
   },
-  "dependencies": {
-    "react": "^16.13.1"
-  },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": ">= 16.8.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
@@ -37,6 +34,7 @@
     "parcel": "^1.12.4",
     "prettier": "^2.0.5",
     "puppeteer": "^3.0.0",
+    "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "standard-version": "^7.0.1"
   }
