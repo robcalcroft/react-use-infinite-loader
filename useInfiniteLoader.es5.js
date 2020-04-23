@@ -28,7 +28,15 @@ function useInfiniteLoader(_ref) {
       _ref$hasMore = _ref.hasMore,
       hasMore = _ref$hasMore === void 0 ? false : _ref$hasMore,
       _ref$initialise = _ref.initialise,
-      initialise = _ref$initialise === void 0 ? true : _ref$initialise;
+      initialise = _ref$initialise === void 0 ? true : _ref$initialise,
+      _ref$rootMargin = _ref.rootMargin,
+      rootMargin = _ref$rootMargin === void 0 ? "100px 0px 0px 0px" : _ref$rootMargin,
+      _ref$threshold = _ref.threshold,
+      threshold = _ref$threshold === void 0 ? 0 : _ref$threshold;
+
+  if (typeof loadMore !== "function") {
+    throw new TypeError("useInfiniteLoader: loadMore must be a function and is required");
+  }
 
   var loaderRef = _react.default.useRef(null);
 
@@ -53,8 +61,8 @@ function useInfiniteLoader(_ref) {
         loadMore(page.current);
         page.current += 1;
       }, {
-        rootMargin: "20px 0px",
-        threshold: 0.01
+        rootMargin: rootMargin,
+        threshold: threshold
       });
 
       if (loaderRef.current) {
@@ -66,10 +74,10 @@ function useInfiniteLoader(_ref) {
       observer.current.disconnect();
       observer.current = undefined;
     };
-  }, [hasMore, loadMore, page]);
+  }, [hasMore, loadMore, page, initialise]);
 
   return {
     loaderRef: loaderRef,
-    page: page
+    page: page.current
   };
 }

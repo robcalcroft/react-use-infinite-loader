@@ -1,6 +1,6 @@
 {
   "name": "react-use-infinite-loader",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Infinitely load new content in React using a simple React hook",
   "main": "useInfiniteLoader.es5.js",
   "repository": "git@github.com:CurationCorp/react-use-infinite-loader.git",
