@@ -71,8 +71,10 @@ function useInfiniteLoader(_ref) {
     }
 
     return function () {
-      observer.current.disconnect();
-      observer.current = undefined;
+      if (observer && observer.current) {
+        observer.current.disconnect();
+        observer.current = undefined;
+      }
     };
   }, [hasMore, loadMore, page, initialise]);
 

@@ -36,8 +36,10 @@ export default function useInfiniteLoader({
       }
     }
     return () => {
-      observer.current.disconnect();
-      observer.current = undefined;
+      if (observer && observer.current) {
+        observer.current.disconnect();
+        observer.current = undefined;
+      }
     };
   }, [hasMore, loadMore, page, initialise]);
   return { loaderRef, page: page.current };
