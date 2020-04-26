@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function useInfiniteLoader({
-  initialPage = 0,
+  startFromPage = 0,
   loadMore,
   canLoadMore = false,
   initialise = true,
@@ -14,7 +14,7 @@ export default function useInfiniteLoader({
     );
   }
   const loaderRef = React.useRef(null);
-  const page = React.useRef(initialPage);
+  const page = React.useRef(startFromPage);
   const observer = React.useRef(null);
   React.useEffect(() => {
     if (!observer.current && initialise === true) {
