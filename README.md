@@ -33,15 +33,24 @@ const loadMore = React.useCallback((page) => {
 });
 const { loaderRef } = useInfiniteLoader({ loadMore, canLoadMore });
 ```
-Give the `loaderRef` that's returned from the hook to a `div` that sits directly below your rendered content list
+Give the `loaderRef` that's returned from the hook to a `div` that sits directly below your rendered content list. Give it a classname that you'll use in the next step.
 ```javascript
 return (
   <>
     <h1>My App</h1>
     {items.map(item => <div>{item}</div>)}
-    <div ref={loaderRef} />
+    <div ref={loaderRef} className="loaderRef" />
   </>
 );
+```
+Add the following CSS to your apps to allow the observer to see the div and know to load more data
+```css
+/* You can change the name here and in your JSX if you want to */
+.loaderRef {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
 ```
 
 ## API Reference
