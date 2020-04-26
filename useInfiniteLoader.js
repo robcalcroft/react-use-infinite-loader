@@ -7,7 +7,14 @@ export default function useInfiniteLoader({
   initialise = true,
   rootMargin = "100px 0px 0px 0px",
   threshold = 0,
+  debug = false,
 }) {
+  function log(...args) {
+    if (debug) {
+      console.log(...args);
+    }
+  }
+
   if (typeof loadMore !== "function") {
     throw new TypeError(
       "useInfiniteLoader: loadMore must be a function and is required"
@@ -18,20 +25,26 @@ export default function useInfiniteLoader({
   const observer = React.useRef(null);
   React.useEffect(() => {
     if (!observer.current && initialise === true) {
+      log("Initialised");
       observer.current = new IntersectionObserver(
         ([target]) => {
+          log("Observer invoked");
           if (target.intersectionRatio <= 0) {
+            log("Intersection ratio not met, bailing");
             return;
           }
           if (canLoadMore === false) {
+            log("Can load more is false, bailing");
             return;
           }
+          log("Loading more...");
           loadMore(page.current);
           page.current += 1;
         },
         { rootMargin, threshold }
       );
       if (loaderRef.current) {
+        log("Observing loader ref");
         observer.current.observe(loaderRef.current);
       }
     }

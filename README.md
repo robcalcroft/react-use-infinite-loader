@@ -54,3 +54,4 @@ return (
 | threshold         | `0`           | [Read about `threshold` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
 | initialise  | `true` | Used for if your data fetching library fetches page 0 and renders it when the component loads, to use this just have a state flag that you set to false once the initial load from your data fetching lib has happened.                                |
 | startFromPage | `0` | Used if you already load page 0 on mount, you can tell useInfiniteLoader what page to begin loading more from. |
+| debug | `false` | Prints some helpful messages about what useInfiniteLoader is doing |
