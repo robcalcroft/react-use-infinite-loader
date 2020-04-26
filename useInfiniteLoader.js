@@ -11,6 +11,7 @@ export default function useInfiniteLoader({
 }) {
   function log(...args) {
     if (debug) {
+      // eslint-disable-next-line no-console
       console.log(...args);
     }
   }
