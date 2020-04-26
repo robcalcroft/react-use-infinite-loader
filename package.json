@@ -10,8 +10,8 @@
     "test": "jest",
     "lint": "eslint .",
     "build": "babel useInfiniteLoader.js --out-file useInfiniteLoader.es5.js",
-    "buildExample": "parcel example/index.html --no-source-maps --no-cache --out-dir example/dist",
-    "buildExample:production": "parcel build example/index.html --no-source-maps --no-cache --out-dir example/dist",
+    "start": "parcel example/index.html --no-source-maps --no-cache --out-dir example/dist",
+    "buildExample": "parcel build example/index.html --no-source-maps --no-cache --out-dir example/dist",
     "release": "yarn test && yarn build && standard-version"
   },
   "peerDependencies": {
