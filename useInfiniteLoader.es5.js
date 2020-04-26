@@ -22,8 +22,8 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function useInfiniteLoader(_ref) {
-  var _ref$initialPage = _ref.initialPage,
-      initialPage = _ref$initialPage === void 0 ? 0 : _ref$initialPage,
+  var _ref$startFromPage = _ref.startFromPage,
+      startFromPage = _ref$startFromPage === void 0 ? 0 : _ref$startFromPage,
       loadMore = _ref.loadMore,
       _ref$canLoadMore = _ref.canLoadMore,
       canLoadMore = _ref$canLoadMore === void 0 ? false : _ref$canLoadMore,
@@ -32,7 +32,18 @@ function useInfiniteLoader(_ref) {
       _ref$rootMargin = _ref.rootMargin,
       rootMargin = _ref$rootMargin === void 0 ? "100px 0px 0px 0px" : _ref$rootMargin,
       _ref$threshold = _ref.threshold,
-      threshold = _ref$threshold === void 0 ? 0 : _ref$threshold;
+      threshold = _ref$threshold === void 0 ? 0 : _ref$threshold,
+      _ref$debug = _ref.debug,
+      debug = _ref$debug === void 0 ? false : _ref$debug;
+
+  function log() {
+    if (debug) {
+      var _console;
+
+      // eslint-disable-next-line no-console
+      (_console = console).log.apply(_console, arguments);
+    }
+  }
 
   if (typeof loadMore !== "function") {
     throw new TypeError("useInfiniteLoader: loadMore must be a function and is required");
@@ -40,24 +51,30 @@ function useInfiniteLoader(_ref) {
 
   var loaderRef = _react.default.useRef(null);
 
-  var page = _react.default.useRef(initialPage);
+  var page = _react.default.useRef(startFromPage);
 
   var observer = _react.default.useRef(null);
 
   _react.default.useEffect(function () {
     if (!observer.current && initialise === true) {
+      log("Initialised");
       observer.current = new IntersectionObserver(function (_ref2) {
         var _ref3 = _slicedToArray(_ref2, 1),
             target = _ref3[0];
 
+        log("Observer invoked");
+
         if (target.intersectionRatio <= 0) {
+          log("Intersection ratio not met, bailing");
           return;
         }
 
         if (canLoadMore === false) {
+          log("Can load more is false, bailing");
           return;
         }
 
+        log("Loading more...");
         loadMore(page.current);
         page.current += 1;
       }, {
@@ -66,6 +83,7 @@ function useInfiniteLoader(_ref) {
       });
 
       if (loaderRef.current) {
+        log("Observing loader ref");
         observer.current.observe(loaderRef.current);
       }
     }
