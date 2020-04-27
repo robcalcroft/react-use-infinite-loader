@@ -43,7 +43,7 @@ return (
   </>
 );
 ```
-Add the following CSS to your apps to allow the observer to see the div and know to load more data
+Add the following CSS to your apps to allow the observer to see the div and know to load more data. Note that if you **always** have a DOM node with at least 1px height and width below the `loaderRef` div then you don't need to add this CSS. An example would be an always visible loading spinner at the bottom of the page.
 ```css
 /* You can change the name here and in your JSX if you want to */
 .loaderRef {
@@ -63,4 +63,4 @@ Add the following CSS to your apps to allow the observer to see the div and know
 | threshold         | `0`           | [Read about `threshold` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
 | initialise  | `true` | Used for if your data fetching library fetches page 0 and renders it when the component loads, to use this just have a state flag that you set to false once the initial load from your data fetching lib has happened.                                |
 | startFromPage | `0` | Used if you already load page 0 on mount, you can tell useInfiniteLoader what page to begin loading more from. |
-| debug | `false` | Prints some helpful messages about what useInfiniteLoader is doing |
+| debug | `false` | Prints some helpful messages about what useInfiniteLoader is doing. |
