@@ -43,7 +43,7 @@ return (
   </>
 );
 ```
-Add the following CSS to your apps to allow the observer to see the div and know to load more data. Note that if you **always** have a DOM node with at least 1px height and width below the `loaderRef` div then you don't need to add this CSS. An example would be an always visible loading spinner at the bottom of the page.
+Add the following CSS to your apps to allow the observer to see the div and know to load more data. Note that if you **always** have a DOM node with at least 1px height and width below the `loaderRef` div then you **don't** need to add this CSS. A common example where the CSS isn't required would be `{canLoadMore && <div>Loading page {page + 1}</div>}`.
 ```css
 /* You can change the name here and in your JSX if you want to */
 .loaderRef {

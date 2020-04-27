@@ -3,27 +3,22 @@ import useInfiniteLoader from "../useInfiniteLoader";
 import getMoreItems from "./api";
 
 function App() {
-  const [loading, setLoading] = React.useState(false);
   const [initialLoad, setInitialLoad] = React.useState(true);
   const [items, setItems] = React.useState([]);
   const [canLoadMore, setCanLoadMore] = React.useState(true);
   const loadMore = React.useCallback((page) => {
-    setLoading(true);
     getMoreItems(page).then((response) => {
       if (response.canLoadMore !== canLoadMore) {
         setCanLoadMore(response.canLoadMore);
       }
       setItems((currentItems) => [...currentItems, ...response.items]);
-      setLoading(false);
     });
   }, []);
 
   React.useEffect(() => {
     if (initialLoad === true) {
-      setLoading(true);
       getMoreItems(0).then((response) => {
         setItems((currentItems) => [...currentItems, ...response.items]);
-        setLoading(false);
         setInitialLoad(false);
       });
     }
@@ -81,9 +76,9 @@ function App() {
       {/* Super important that this observable div sits directly below the content
       you're loading in, also ensure you have a class which sets the width and
       height to at least 1px to ensure the observer sees it */}
-      <div ref={loaderRef} className="loaderRef" />
+      <div ref={loaderRef} />
       {/* Put whatever you'd like to show below, usually a loader! */}
-      {loading === true && (
+      {canLoadMore && (
         <div className="info">
           Loading page {initialLoad === true ? 1 : page + 1}...
         </div>

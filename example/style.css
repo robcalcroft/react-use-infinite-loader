@@ -17,9 +17,3 @@ body {
 .info {
   margin: 20px 0;
 }
-
-.loaderRef {
-  width: 1px;
-  height: 1px;
-  position: absolute;
-}

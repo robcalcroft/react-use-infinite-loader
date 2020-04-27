@@ -3,17 +3,14 @@ import useInfiniteLoader from "../useInfiniteLoader";
 import getMoreItems from "./api";
 
 function App() {
-  const [loading, setLoading] = React.useState(false);
   const [items, setItems] = React.useState([]);
   const [canLoadMore, setCanLoadMore] = React.useState(true);
   const loadMore = React.useCallback((page) => {
-    setLoading(true);
     getMoreItems(page).then((response) => {
       if (response.canLoadMore !== canLoadMore) {
         setCanLoadMore(response.canLoadMore);
       }
       setItems((currentItems) => [...currentItems, ...response.items]);
-      setLoading(false);
     });
   }, []);
 
@@ -57,13 +54,12 @@ function App() {
         </div>
       ))}
       {/* Super important that this observable div sits directly below the content
-      you're loading in, also ensure you have a class which sets the width and
-      height to at least 1px to ensure the observer sees it */}
-      <div ref={loaderRef} className="loaderRef" />
+      you're loading in, note that in this case we don't need the `loaderRef`
+      mentioned in the usage docs as we have a loading div that sits below it
+      and is always visible (until we can't load any more data) */}
+      <div ref={loaderRef} />
       {/* Put whatever you'd like to show below, usually a loader! */}
-      {loading === true && (
-        <div className="info">Loading page {page + 1}...</div>
-      )}
+      {canLoadMore && <div className="info">Loading page {page + 1}...</div>}
       {canLoadMore === false && (
         <div className="info">No more items to load</div>
       )}
