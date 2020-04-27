@@ -1,3 +1,7 @@
 [build]
   publish = "example/dist"
   command = "yarn buildExample"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
