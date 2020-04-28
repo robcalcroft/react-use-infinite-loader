@@ -1,5 +1,3 @@
-### react-use-infinite-loader is currently in pre release, use with caution
-
 # react-use-infinite-loader :infinity: :page_with_curl: :hourglass_flowing_sand:
 
 > Super lightweight infinite loading hook for React apps
