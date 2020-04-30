@@ -1,5 +1,7 @@
 # react-use-infinite-loader :infinity: :page_with_curl: :hourglass_flowing_sand:
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f5a22a2-92be-4cc0-ab7b-ae58ff82706a/deploy-status)](https://app.netlify.com/sites/react-use-infinite-loader/deploys) ![Run puppeteer tests on the example code](https://github.com/CurationCorp/react-use-infinite-loader/workflows/Run%20puppeteer%20tests%20on%20the%20example%20code/badge.svg?branch=master) [![npm version](https://badge.fury.io/js/react-use-infinite-loader.svg)](https://badge.fury.io/js/react-use-infinite-loader)
+
 > Super lightweight infinite loading hook for React apps
 
 `react-use-infinite-loader` uses the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to provide a performant solution to infinite scrolling that doesn't involve scroll event listeners.
