@@ -55,6 +55,10 @@ function useInfiniteLoader(_ref) {
 
   var observer = _react.default.useRef(null);
 
+  function resetPage() {
+    page.current = startFromPage;
+  }
+
   _react.default.useEffect(function () {
     if (!observer.current && initialise === true) {
       log("Initialised");
@@ -98,6 +102,7 @@ function useInfiniteLoader(_ref) {
 
   return {
     loaderRef: loaderRef,
-    page: page.current
+    page: page.current,
+    resetPage: resetPage
   };
 }

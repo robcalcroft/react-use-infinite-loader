@@ -24,6 +24,11 @@ export default function useInfiniteLoader({
   const loaderRef = React.useRef(null);
   const page = React.useRef(startFromPage);
   const observer = React.useRef(null);
+
+  function resetPage() {
+    page.current = startFromPage;
+  }
+
   React.useEffect(() => {
     if (!observer.current && initialise === true) {
       log("Initialised");
@@ -56,5 +61,5 @@ export default function useInfiniteLoader({
       }
     };
   }, [canLoadMore, loadMore, page, initialise]);
-  return { loaderRef, page: page.current };
+  return { loaderRef, page: page.current, resetPage };
 }

@@ -55,12 +55,22 @@ Add the following CSS to your apps to allow the observer to see the div and know
 
 ## API Reference
 
-| Property     | Default value     | Description                                                                                              |
-|-------------------|-------------------|----------------------------------------------------------------------------------------------------------|
+### `useInfiniteLoader` arguments object
+
+| Property | Default value | Description |
+| - | - | - |
 | loadMore | **required** | Invoked when the user scrolls into the observable viewport + its rootMargin; read about rootMargin and thresholds [here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
 | canLoadMore | `false` | Tells useInfiniteLoader whether to run `loadMore` when the observer is triggered, this is usually set dynamically. |
-| rootMargin        | `"100px 0px 0px 0px"`     | [Read about `rootMargin` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
-| threshold         | `0`           | [Read about `threshold` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
-| initialise  | `true` | Used for if your data fetching library fetches page 0 and renders it when the component loads, to use this just have a state flag that you set to false once the initial load from your data fetching lib has happened.                                |
+| rootMargin | `"100px 0px 0px 0px"` | [Read about `rootMargin` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
+| threshold | `0` | [Read about `threshold` here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options). |
+| initialise  | `true` | Used for if your data fetching library fetches page 0 and renders it when the component loads, to use this just have a state flag that you set to false once the initial load from your data fetching lib has happened. |
 | startFromPage | `0` | Used if you already load page 0 on mount, you can tell useInfiniteLoader what page to begin loading more from. |
 | debug | `false` | Prints some helpful messages about what useInfiniteLoader is doing. |
+
+### `useInfiniteLoader` result object
+
+| Property | Description |
+| - | - |
+| `loaderRef` | A [React ref](https://reactjs.org/docs/hooks-reference.html#useref) that you must pass to an element via `ref={loaderRef}`, this element must sit directly below your list of items that you're loading  |
+| `page` | The current page that `useInfiniteLoader` has loaded |
+| `resetPage` | A function that resets the current page to `startFromPage` (default `0`). This is useful if you change the context of the page but the component instance is the same |
