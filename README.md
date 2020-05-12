@@ -6,7 +6,7 @@
 
 `react-use-infinite-loader` uses the [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to provide a performant solution to infinite scrolling that doesn't involve scroll event listeners.
 
-:warning: Some older browsers may not support the `IntersectionObserver` API, however you can easily [polyfill the functionality with this](https://github.com/w3c/IntersectionObserver/tree/master/polyfill).
+:warning: Some older browsers [may not support](https://caniuse.com/#feat=intersectionobserver) the `IntersectionObserver` API, however you can easily [polyfill the functionality with this](https://github.com/w3c/IntersectionObserver/tree/master/polyfill).
 
 As the name suggests `react-use-infinite-loader` uses React Hooks, so you need to be using React function components to use this library.
 
