@@ -5,6 +5,7 @@
   "main": "useInfiniteLoader.es5.js",
   "repository": "git@github.com:CurationCorp/react-use-infinite-loader.git",
   "author": "Rob Calcroft",
+  "types": "index.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "jest",
