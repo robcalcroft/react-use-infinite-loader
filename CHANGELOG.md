@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/CurationCorp/react-use-infinite-loader/compare/v1.0.0-beta.1...v1.0.0) (2021-11-12)
+
+
+### Features
+
+* add type definitions for typescript support ([806ec7f](https://github.com/CurationCorp/react-use-infinite-loader/commit/806ec7f7aed232bf8478a89330a41b16a3b0ff9e))
+
 ## [1.0.0-beta.1](https://github.com/CurationCorp/react-use-infinite-loader/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2020-05-07)
 
 
